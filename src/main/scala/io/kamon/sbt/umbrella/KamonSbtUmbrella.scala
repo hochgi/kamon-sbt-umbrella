@@ -62,8 +62,8 @@ object KamonSbtUmbrella extends AutoPlugin {
 
     def akkaDependency(moduleName: String) = Def.setting {
       scalaBinaryVersion.value match {
-        case "2.10" | "2.11" => "com.typesafe.akka" %% s"akka-$moduleName" % "2.3.15"
-        case "2.12"          => "com.typesafe.akka" %% s"akka-$moduleName" % "2.4.14"
+        case "2.10" | "2.11" => "com.typesafe.akka" %% s"akka-$moduleName" % "2.3.16"
+        case "2.12"          => "com.typesafe.akka" %% s"akka-$moduleName" % "2.5.12"
       }
     }
 
@@ -88,11 +88,11 @@ object KamonSbtUmbrella extends AutoPlugin {
   }
 
   private def scalaVersionSetting = Def.setting {
-    if (sbtPlugin.value) scalaVersion.value else "2.12.1"
+    if (sbtPlugin.value) scalaVersion.value else "2.12.4"
   }
 
   private def crossScalaVersionsSetting = Def.setting {
-    if (sbtPlugin.value) Seq(scalaVersion.value) else Seq("2.10.6", "2.11.8", "2.12.1")
+    if (sbtPlugin.value) Seq(scalaVersion.value) else Seq("2.10.6", "2.11.8", "2.12.4")
   }
 
   private def versionSetting = Def.setting {
